@@ -1,14 +1,14 @@
 import axios from "axios";
 
 const getAllCars = (setCars) => {
-    axios.get("http://localhost:4000")
+    axios.get("https://cars-delivery-log-backend.onrender.com")
     .then(({data}) => {console.log(data)
         setCars(data);
     })
 }
 
 const addCar = (   title, setTitle, setCars) => {
-    axios.post("http://localhost:4000/saveCar", { title})
+    axios.post("https://cars-delivery-log-backend.onrender.com/saveCar", { title})
     .then((data) => {
         console.log(data);
         setTitle("");
@@ -17,7 +17,7 @@ const addCar = (   title, setTitle, setCars) => {
 }
 
 const editCar = (carId,title, setTitle, setCars, setEditing ) => {
-    axios.post("http://localhost:4000/editCar", {_id: carId, title})
+    axios.post("https://cars-delivery-log-backend.onrender.com/editCar", {_id: carId, title})
     .then((data) => {
         console.log(data);
       
@@ -28,7 +28,7 @@ const editCar = (carId,title, setTitle, setCars, setEditing ) => {
 }
 
 const deleteCar = (_id, setCars) => {
-    axios.post("http://localhost:4000/deleteCar", {_id})
+    axios.post("https://cars-delivery-log-backend.onrender.com/deleteCar", {_id})
     .then((data) => {
         console.log(data);
         getAllCars(setCars);
